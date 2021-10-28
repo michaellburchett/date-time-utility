@@ -1,100 +1,175 @@
 'use strict';
 
-const expiration = require('../index.js');
+const dateTimeUtility = require('../index.js');
 const assert = require('assert');
 
-describe('Test Date Utilities', function() {
-    describe('get date by days from another date in the future', function() {
-        it('should get a date based on another date and days in the future', function() {
-            const date = new Date('August 19, 1975 23:15:30');
+describe('Test Date Time Utilities', function() {
 
-            const expectedExpirationDate = new Date('November 17, 1975 23:15:30');
+    describe('How many seconds in the future is a specified date from the current time?', function() {
+        it('should get seconds away a specified date is from the current time.', function() {
+            const date = new Date();
 
-            const expirationDate = expiration.getDateByDaysFromAnotherDate(date, 90);
+            date.setDate(date.getDate() + 30);
 
-            assert.equal(expirationDate.toString(), expectedExpirationDate.toString());
+            const seconds = dateTimeUtility.seconds.fromCurrentTime(date);
+
+            assert.equal(seconds, 2592000);
         });
     });
 
-    describe('get date by days from another date in the past', function() {
-        it('should get a date based on another date and days in the past', function() {
-            const date = new Date('August 19, 1975 23:15:30');
+    describe('How many minutes in the future is a specified date from the current time?', function() {
+        it('should get minutes away a specified date is from the current time.', function() {
+            const date = new Date();
 
-            const expectedExpirationDate = new Date('August 17, 1975 23:15:30');
+            date.setDate(date.getDate() + 30);
 
-            const expirationDate = expiration.getDateByDaysFromAnotherDate(date, -2);
+            const minutes = dateTimeUtility.minutes.fromCurrentTime(date);
 
-            assert.equal(expirationDate.toString(), expectedExpirationDate.toString());
+            assert.equal(minutes, 43200);
         });
     });
 
-    describe('get date by days from another date throws error if date not given', function() {
-        it('should not get a date based on another date and days if the date is not a date', function() {
-            assert.throws(
-                () => expiration.getDateByDaysFromAnotherDate("not a date", 90)
-            );
+    describe('How many days in the future is a specified date from the current time?', function() {
+        it('should get days away a specified date is from the current time.', function() {
+            const date = new Date();
+
+            date.setDate(date.getDate() + 30);
+
+            const days = dateTimeUtility.days.fromCurrentTime(date);
+
+            assert.equal(days, 30);
         });
     });
 
-    describe('get date by days from another date in the future with floating number of days throws error', function() {
-        it('should not get a date based on another date and days in the future with floating days', function() {
-            const date = new Date('August 19, 1975 23:15:30');
+    describe('How many weeks in the future is a specified date from the current time?', function() {
+        it('should get weeks away a specified date is from the current time.', function() {
+            const date = new Date();
 
-            assert.throws(
-                () => expiration.getDateByDaysFromAnotherDate(date, 90.3463456734573457567345)
-            );
+            date.setDate(date.getDate() + 30);
+
+            const weeks = dateTimeUtility.weeks.fromCurrentTime(date);
+
+            assert.equal(weeks, 4);
         });
     });
 
-    describe('get date by days from another date in the past with floating number of days throws an error', function() {
-        it('should not get a date based on another date and days in the past with floating days', function() {
-            const date = new Date('August 19, 1975 23:15:30');
-
-            assert.throws(
-                () => expiration.getDateByDaysFromAnotherDate(date, -2.964563453453)
-            );
-        });
-    });
-
-    describe('get date by days from another date in the future with non number of days throws error', function() {
-        it('should not get a date based on another date and number of days that is not a number', function() {
-            const date = new Date('August 19, 1975 23:15:30');
-
-            assert.throws(
-                () => expiration.getDateByDaysFromAnotherDate(date, "ninety")
-            );
-        });
-    });
-
-    describe('get date by days from another date with out of bounds number of days throws error', function() {
-        it('should not get a date based on another date and number of days that is out of bounds', function() {
-            const date = new Date('August 19, 1975 23:15:30');
-
-            assert.throws(
-                () => expiration.getDateByDaysFromAnotherDate(date, 100000001)
-            );
-        });
-    });
-
-    describe('getExpiresInSeconds', function() {
-        it('should set an appropriate expires in seconds, given an expiration date', function() {
+    describe('How many months in the future is a specified date from the current time?', function() {
+        it('should get months away a specified date is from the current time.', function() {
             const date = new Date();
 
             date.setDate(date.getDate() + 90);
 
-            const expires_in_seconds = expiration.getSecondsFromWhenDateBegins(date);
+            const months = dateTimeUtility.months.fromCurrentTime(date);
 
-            assert.equal(expires_in_seconds, 7779600);
+            assert.equal(months, 3);
         });
     });
 
-    describe('getIsDateAfterNow', function() {
-        it('should take a date and return true if it is after now', function() {
+    describe('How many years in the future is a specified date from the current time?', function() {
+        it('should get years away a specified date is from the current time.', function() {
             const date = new Date();
 
-            date.setDate(date.getDate() + 1);
+            date.setDate(date.getDate() + 1480);
 
-            assert(expiration.getIsDateAfterNow(date));
+            const years = dateTimeUtility.years.fromCurrentTime(date);
+
+            assert.equal(years, 4);
+        });
+    });
+
+    describe('How many seconds are between two given dates?', function() {
+        it('should get seconds between two given dates.', function() {
+            const date1 = new Date();
+
+            const date2 = new Date();
+
+            date1.setDate(date1.getDate() + 30);
+
+            date2.setDate(date2.getDate() + 60);
+
+            const seconds = dateTimeUtility.seconds.betweenDates(date1, date2);
+
+            assert.equal(seconds, 2592000);
+        });
+    });
+
+    describe('How many minutes are between two given dates?', function() {
+        it('should get minutes between two given dates.', function() {
+            const date1 = new Date();
+
+            const date2 = new Date();
+
+            date1.setDate(date1.getDate() + 30);
+
+            date2.setDate(date2.getDate() + 60);
+
+            const minutes = dateTimeUtility.minutes.betweenDates(date1, date2);
+
+            assert.equal(minutes, 43200);
+        });
+    });
+
+    describe('How many days are between two given dates?', function() {
+        it('should get days between two given dates.', function() {
+            const date1 = new Date();
+
+            const date2 = new Date();
+
+            date1.setDate(date1.getDate() + 30);
+
+            date2.setDate(date2.getDate() + 60);
+
+            const days = dateTimeUtility.days.betweenDates(date1, date2);
+
+            assert.equal(days, 30);
+        });
+    });
+
+    describe('How many weeks are between two given dates?', function() {
+        it('should get weeks between two given dates.', function() {
+            const date1 = new Date();
+
+            const date2 = new Date();
+
+            date1.setDate(date1.getDate() + 30);
+
+            date2.setDate(date2.getDate() + 60);
+
+            const weeks = dateTimeUtility.weeks.betweenDates(date1, date2);
+
+            assert.equal(weeks, 4);
+        });
+    });
+
+    describe('How many months are between two given dates?', function() {
+        it('should get months between two given dates.', function() {
+            const date1 = new Date();
+
+            const date2 = new Date();
+
+            date1.setDate(date1.getDate() + 90);
+
+            date2.setDate(date2.getDate() + 180);
+
+            const months = dateTimeUtility.months.betweenDates(date1, date2);
+
+            assert.equal(months, 3);
+        });
+    });
+
+    describe('How many years are between two given dates?', function() {
+        it('should get years between two given dates.', function() {
+            const date1 = new Date();
+
+            const date2 = new Date();
+
+            date1.setDate(date1.getDate() + 1480);
+
+            date2.setDate(date2.getDate() + 2960);
+
+            const years = dateTimeUtility.months.betweenDates(date1, date2);
+
+            assert.equal(years, 4);
         });
     });
 });
