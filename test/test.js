@@ -9,11 +9,11 @@ describe('Test Date Time Utilities', function() {
         it('should get seconds away a specified date is from the current time.', function() {
             const date = new Date();
 
-            date.setDate(date.getDate() + 30);
+            date.setDate(date.getDate() + 360);
 
             const seconds = dateTimeUtility.seconds.fromCurrentTime(date);
 
-            assert.equal(seconds, 2592000);
+            assert.equal(seconds, 31104000);
         });
     });
 
@@ -21,11 +21,11 @@ describe('Test Date Time Utilities', function() {
         it('should get minutes away a specified date is from the current time.', function() {
             const date = new Date();
 
-            date.setDate(date.getDate() + 30);
+            date.setDate(date.getDate() + 360);
 
             const minutes = dateTimeUtility.minutes.fromCurrentTime(date);
 
-            assert.equal(minutes, 43200);
+            assert.equal(minutes, 525960);
         });
     });
 
@@ -83,13 +83,13 @@ describe('Test Date Time Utilities', function() {
 
             const date2 = new Date();
 
-            date1.setDate(date1.getDate() + 30);
+            date1.setDate(date1.getDate());
 
-            date2.setDate(date2.getDate() + 60);
+            date2.setDate(date2.getDate() + 360);
 
             const seconds = dateTimeUtility.seconds.betweenDates(date1, date2);
 
-            assert.equal(seconds, 2592000);
+            assert.equal(seconds, 31104000);
         });
     });
 
@@ -99,13 +99,13 @@ describe('Test Date Time Utilities', function() {
 
             const date2 = new Date();
 
-            date1.setDate(date1.getDate() + 30);
+            date1.setDate(date1.getDate());
 
-            date2.setDate(date2.getDate() + 60);
+            date2.setDate(date2.getDate() + 360);
 
             const minutes = dateTimeUtility.minutes.betweenDates(date1, date2);
 
-            assert.equal(minutes, 43200);
+            assert.equal(minutes, 525960);
         });
     });
 

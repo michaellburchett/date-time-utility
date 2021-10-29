@@ -1,3 +1,9 @@
+/**
+ * Takes a date and determines how many seconds away it is from now
+ *
+ * @param {Date} date This is the date you would like to compare against
+ * @return {Number}
+ */
 exports.fromCurrentTime = function(date) {
 
     validateIsInstanceOf(date, Date);
@@ -7,13 +13,20 @@ exports.fromCurrentTime = function(date) {
     return Math.round(difference / 1000);
 };
 
+/**
+ * Takes two dates and determines how many seconds away they are from each other
+ *
+ * @param {Date} date1 This is the first date you would like to compare against
+ * @param {Date} date2 This is the second date you would like to compare against
+ * @return {Number}
+ */
 exports.betweenDates = function(date1, date2) {
 
     validateIsInstanceOf(date1, Date);
 
     validateIsInstanceOf(date2, Date);
 
-    const difference = date1 - date2;
+    const difference = date2 - date1;
 
     return Math.round(difference / 1000);
 };
