@@ -167,7 +167,7 @@ describe('Test Date Time Utilities', function() {
 
             date2.setDate(date2.getDate() + 2960);
 
-            const years = dateTimeUtility.months.betweenDates(date1, date2);
+            const years = dateTimeUtility.years.betweenDates(date1, date2);
 
             assert.equal(years, 4);
         });

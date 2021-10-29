@@ -1,4 +1,9 @@
+exports.seconds = require('./seconds');
+exports.minutes = require('./minutes');
 exports.days = require('./days');
+exports.weeks = require('./weeks');
+exports.months = require('./months');
+exports.years = require('./years');
 
 /**
  * Takes a date and a number and gives users a new date that is that number of days in the future or past
