@@ -2,7 +2,7 @@
   "name": "date-time-utility",
   "version": "1.0.0",
   "description": "An application that assists users in navigating the complexities of dates and times.",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "nyc --reporter=text mocha"
   },

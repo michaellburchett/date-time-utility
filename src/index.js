@@ -1,3 +1,5 @@
+exports.days = require('./days');
+
 /**
  * Takes a date and a number and gives users a new date that is that number of days in the future or past
  *

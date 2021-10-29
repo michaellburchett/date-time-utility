@@ -1,6 +1,6 @@
 'use strict';
 
-const dateTimeUtility = require('../index.js');
+const dateTimeUtility = require('../src/index.js');
 const assert = require('assert');
 
 describe('Test Date Time Utilities', function() {
