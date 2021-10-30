@@ -10,7 +10,7 @@ exports.fromCurrentTime = function(date) {
 
     const difference = date - Date.now();
 
-    return Math.round((difference / 1000) / 60);
+    return Math.round(((difference / 1000) / 60) / 60);
 };
 
 /**
@@ -28,7 +28,7 @@ exports.betweenDates = function(date1, date2) {
 
     const difference = date2 - date1;
 
-    return Math.round((difference / 1000) / 60);
+    return Math.round(((difference / 1000) / 60) / 60);
 };
 
 /**

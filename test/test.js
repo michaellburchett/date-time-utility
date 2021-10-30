@@ -9,11 +9,11 @@ describe('Test Date Time Utilities', function() {
         it('should get seconds away a specified date is from the current time.', function() {
             const date = new Date();
 
-            date.setDate(date.getDate() + 360);
+            date.setDate(date.getDate() + 365);
 
             const seconds = dateTimeUtility.seconds.fromCurrentTime(date);
 
-            assert.equal(seconds, 31104000);
+            assert.equal(seconds, 31536000);
         });
     });
 
@@ -21,11 +21,23 @@ describe('Test Date Time Utilities', function() {
         it('should get minutes away a specified date is from the current time.', function() {
             const date = new Date();
 
-            date.setDate(date.getDate() + 360);
+            date.setDate(date.getDate() + 365);
 
             const minutes = dateTimeUtility.minutes.fromCurrentTime(date);
 
-            assert.equal(minutes, 525960);
+            assert.equal(minutes, 525600);
+        });
+    });
+
+    describe('How many hours in the future is a specified date from the current time?', function() {
+        it('should get hours away a specified date is from the current time.', function() {
+            const date = new Date();
+
+            date.setDate(date.getDate() + 365);
+
+            const hours = dateTimeUtility.hours.fromCurrentTime(date);
+
+            assert.equal(hours, 8760);
         });
     });
 
@@ -83,13 +95,13 @@ describe('Test Date Time Utilities', function() {
 
             const date2 = new Date();
 
-            date1.setDate(date1.getDate());
+            date1.setDate(date1.getDate() + 5);
 
-            date2.setDate(date2.getDate() + 360);
+            date2.setDate(date2.getDate() + 370);
 
             const seconds = dateTimeUtility.seconds.betweenDates(date1, date2);
 
-            assert.equal(seconds, 31104000);
+            assert.equal(seconds, 31536000);
         });
     });
 
@@ -99,13 +111,29 @@ describe('Test Date Time Utilities', function() {
 
             const date2 = new Date();
 
-            date1.setDate(date1.getDate());
+            date1.setDate(date1.getDate() + 5);
 
-            date2.setDate(date2.getDate() + 360);
+            date2.setDate(date2.getDate() + 370);
 
             const minutes = dateTimeUtility.minutes.betweenDates(date1, date2);
 
-            assert.equal(minutes, 525960);
+            assert.equal(minutes, 525600);
+        });
+    });
+
+    describe('How many hours are between two given dates?', function() {
+        it('should get hours between two given dates.', function() {
+            const date1 = new Date();
+
+            const date2 = new Date();
+
+            date1.setDate(date1.getDate() + 5);
+
+            date2.setDate(date2.getDate() + 370);
+
+            const hours = dateTimeUtility.hours.betweenDates(date1, date2);
+
+            assert.equal(hours, 8760);
         });
     });
 
