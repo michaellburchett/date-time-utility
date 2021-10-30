@@ -3,7 +3,7 @@
 const dateTimeUtility = require('../src/index.js');
 const assert = require('assert');
 
-describe('Test Date Time Utilities', function() {
+describe('Test Date Time Utilities Successes', function() {
 
     describe('How many seconds in the future is a specified date from the current time?', function() {
         it('should get seconds away a specified date is from the current time.', function() {
@@ -69,11 +69,11 @@ describe('Test Date Time Utilities', function() {
         it('should get months away a specified date is from the current time.', function() {
             const date = new Date();
 
-            date.setDate(date.getDate() + 90);
+            date.setDate(date.getDate() + 365);
 
             const months = dateTimeUtility.months.fromCurrentTime(date);
 
-            assert.equal(months, 3);
+            assert.equal(months, 12);
         });
     });
 
@@ -81,11 +81,11 @@ describe('Test Date Time Utilities', function() {
         it('should get years away a specified date is from the current time.', function() {
             const date = new Date();
 
-            date.setDate(date.getDate() + 1480);
+            date.setDate(date.getDate() + 365);
 
             const years = dateTimeUtility.years.fromCurrentTime(date);
 
-            assert.equal(years, 4);
+            assert.equal(years, 1);
         });
     });
 
@@ -175,13 +175,13 @@ describe('Test Date Time Utilities', function() {
 
             const date2 = new Date();
 
-            date1.setDate(date1.getDate() + 90);
+            date1.setDate(date1.getDate() + 5);
 
-            date2.setDate(date2.getDate() + 180);
+            date2.setDate(date2.getDate() + 370);
 
             const months = dateTimeUtility.months.betweenDates(date1, date2);
 
-            assert.equal(months, 3);
+            assert.equal(months, 12);
         });
     });
 
@@ -191,13 +191,72 @@ describe('Test Date Time Utilities', function() {
 
             const date2 = new Date();
 
-            date1.setDate(date1.getDate() + 1480);
+            date1.setDate(date1.getDate() + 5);
 
-            date2.setDate(date2.getDate() + 2960);
+            date2.setDate(date2.getDate() + 370);
 
             const years = dateTimeUtility.years.betweenDates(date1, date2);
 
-            assert.equal(years, 4);
+            assert.equal(years, 1);
+        });
+    });
+});
+
+describe('Test Date Time Utilities Errors', function() {
+
+    describe('Should error when non date is passed with seconds from now function.', function() {
+        it('should return an error when a non-date is passed to the seconds function.', function() {
+            assert.throws(
+                () => dateTimeUtility.seconds.fromCurrentTime("text")
+            );
+        });
+    });
+
+    describe('Should error when non date is passed with minutes from now function.', function() {
+        it('should return an error when a non-date is passed to the minutes function.', function() {
+            assert.throws(
+                () => dateTimeUtility.minutes.fromCurrentTime("text")
+            );
+        });
+    });
+
+    describe('Should error when non date is passed with hours from now function.', function() {
+        it('should return an error when a non-date is passed to the hours function.', function() {
+            assert.throws(
+                () => dateTimeUtility.hours.fromCurrentTime("text")
+            );
+        });
+    });
+
+    describe('Should error when non date is passed with days from now function.', function() {
+        it('should return an error when a non-date is passed to the days function.', function() {
+            assert.throws(
+                () => dateTimeUtility.days.fromCurrentTime("text")
+            );
+        });
+    });
+
+    describe('Should error when non date is passed with weeks from now function.', function() {
+        it('should return an error when a non-date is passed to the weeks function.', function() {
+            assert.throws(
+                () => dateTimeUtility.weeks.fromCurrentTime("text")
+            );
+        });
+    });
+
+    describe('Should error when non date is passed with months from now function.', function() {
+        it('should return an error when a non-date is passed to the months function.', function() {
+            assert.throws(
+                () => dateTimeUtility.months.fromCurrentTime("text")
+            );
+        });
+    });
+
+    describe('Should error when non date is passed with years from now function.', function() {
+        it('should return an error when a non-date is passed to the years function.', function() {
+            assert.throws(
+                () => dateTimeUtility.years.fromCurrentTime("text")
+            );
         });
     });
 });

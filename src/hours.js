@@ -1,5 +1,5 @@
 /**
- * Takes a date and determines how many seconds away it is from now
+ * Takes a date and determines how many hours away it is from now
  *
  * @param {Date} date This is the date you would like to compare against
  * @return {Number}
@@ -14,7 +14,7 @@ exports.fromCurrentTime = function(date) {
 };
 
 /**
- * Takes two dates and determines how many seconds away they are from each other
+ * Takes two dates and determines how many hours away they are from each other
  *
  * @param {Date} date1 This is the first date you would like to compare against
  * @param {Date} date2 This is the second date you would like to compare against
