@@ -8,9 +8,9 @@ exports.fromCurrentTime = function(date) {
 
     validateIsInstanceOf(date, Date);
 
-    const difference = date - Date.now();
+    const now = new Date();
 
-    return Math.round(((difference / 1000) / 60) / 60);
+    return getUnitsBetweenDates(now, date);
 };
 
 /**
@@ -26,9 +26,7 @@ exports.betweenDates = function(date1, date2) {
 
     validateIsInstanceOf(date2, Date);
 
-    const difference = date2 - date1;
-
-    return Math.round(((difference / 1000) / 60) / 60);
+    return getUnitsBetweenDates(date1, date2);
 };
 
 /**
@@ -43,4 +41,18 @@ function validateIsInstanceOf(entity, type) {
     if(!entity instanceof type){
         throw new Error(`You must give a valid ${type}`);
     }
+}
+
+/**
+ * Takes two dates and determines how many hours away they are from each other
+ *
+ * @param {Date} date1 This is the first date you would like to compare against
+ * @param {Date} date2 This is the second date you would like to compare against
+ * @return {Number}
+ */
+function getUnitsBetweenDates(date1, date2) {
+
+    const difference = date2 - date1;
+
+    return Math.round(((difference / 1000) / 60) / 60);
 }

@@ -10,7 +10,7 @@ exports.fromCurrentTime = function(date) {
 
     const now = new Date();
 
-    return getYearsBetweenDates(now, date);
+    return getUnitsBetweenDates(now, date);
 };
 
 /**
@@ -26,7 +26,7 @@ exports.betweenDates = function(date1, date2) {
 
     validateIsInstanceOf(date2, Date);
 
-    return getYearsBetweenDates(date1, date2);
+    return getUnitsBetweenDates(date1, date2);
 };
 
 /**
@@ -50,7 +50,7 @@ function validateIsInstanceOf(entity, type) {
  * @param {Date} date2 This is the second date you would like to compare against
  * @return {Number}
  */
-function getYearsBetweenDates(date1, date2) {
+function getUnitsBetweenDates(date1, date2) {
 
     let years;
 
