@@ -57,11 +57,11 @@ describe('Test Date Time Utilities', function() {
         it('should get weeks away a specified date is from the current time.', function() {
             const date = new Date();
 
-            date.setDate(date.getDate() + 30);
+            date.setDate(date.getDate() + 365);
 
             const weeks = dateTimeUtility.weeks.fromCurrentTime(date);
 
-            assert.equal(weeks, 4);
+            assert.equal(weeks, 52);
         });
     });
 
@@ -159,13 +159,13 @@ describe('Test Date Time Utilities', function() {
 
             const date2 = new Date();
 
-            date1.setDate(date1.getDate() + 30);
+            date1.setDate(date1.getDate() + 5);
 
-            date2.setDate(date2.getDate() + 60);
+            date2.setDate(date2.getDate() + 370);
 
             const weeks = dateTimeUtility.weeks.betweenDates(date1, date2);
 
-            assert.equal(weeks, 4);
+            assert.equal(weeks, 52);
         });
     });
 
