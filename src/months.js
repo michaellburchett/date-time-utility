@@ -1,3 +1,5 @@
+const dateValidator = require('./validators/dateValidator');
+
 /**
  * Takes a date and determines how many months away it is from now
  *
@@ -6,7 +8,7 @@
  */
 exports.fromCurrentTime = function(date) {
 
-    validateIsInstanceOf(date, Date);
+    dateValidator.validateIsInstanceOf(date);
 
     const now = new Date();
 
@@ -22,26 +24,12 @@ exports.fromCurrentTime = function(date) {
  */
 exports.betweenDates = function(date1, date2) {
 
-    validateIsInstanceOf(date1, Date);
+    dateValidator.validateIsInstanceOf(date1);
 
-    validateIsInstanceOf(date2, Date);
+    dateValidator.validateIsInstanceOf(date2);
 
     return getUnitsBetweenDates(date1, date2);
 };
-
-/**
- * Takes an entity that you would like to validate that it is a certain type
- *
- * @param entity This is the entity that you would like to validate
- * @param type This is the type that you re validating against
- * @throws
- */
-function validateIsInstanceOf(entity, type) {
-
-    if(!entity instanceof type){
-        throw new Error(`You must give a valid ${type}`);
-    }
-}
 
 /**
  * Takes two dates and determines how many months away they are from each other

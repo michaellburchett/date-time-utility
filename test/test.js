@@ -200,6 +200,118 @@ describe('Test Date Time Utilities Successes', function() {
             assert.equal(years, 1);
         });
     });
+
+    describe('Seconds between two given dates should be 0 if same.', function() {
+        it('should be 0 seconds between two given dates if the dates are the same.', function() {
+            const date1 = new Date();
+
+            const date2 = new Date();
+
+            date1.setDate(date1.getDate() + 5);
+
+            date2.setDate(date2.getDate() + 5);
+
+            const seconds = dateTimeUtility.seconds.betweenDates(date1, date2);
+
+            assert.equal(seconds, 0);
+        });
+    });
+
+    describe('Minutes between two given dates should be 0 if same.', function() {
+        it('should be 0 minutes between two given dates if the dates are the same.', function() {
+            const date1 = new Date();
+
+            const date2 = new Date();
+
+            date1.setDate(date1.getDate() + 5);
+
+            date2.setDate(date2.getDate() + 5);
+
+            const minutes = dateTimeUtility.minutes.betweenDates(date1, date2);
+
+            assert.equal(minutes, 0);
+        });
+    });
+
+    describe('Hours between two given dates should be 0 if same.', function() {
+        it('should be 0 hours between two given dates if the dates are the same.', function() {
+            const date1 = new Date();
+
+            const date2 = new Date();
+
+            date1.setDate(date1.getDate() + 5);
+
+            date2.setDate(date2.getDate() + 5);
+
+            const hours = dateTimeUtility.hours.betweenDates(date1, date2);
+
+            assert.equal(hours, 0);
+        });
+    });
+
+    describe('Days between two given dates should be 0 if same.', function() {
+        it('should be 0 days between two given dates if the dates are the same.', function() {
+            const date1 = new Date();
+
+            const date2 = new Date();
+
+            date1.setDate(date1.getDate() + 5);
+
+            date2.setDate(date2.getDate() + 5);
+
+            const days = dateTimeUtility.days.betweenDates(date1, date2);
+
+            assert.equal(days, 0);
+        });
+    });
+
+    describe('Weeks between two given dates should be 0 if same.', function() {
+        it('should be 0 weeks between two given dates if the dates are the same.', function() {
+            const date1 = new Date();
+
+            const date2 = new Date();
+
+            date1.setDate(date1.getDate() + 5);
+
+            date2.setDate(date2.getDate() + 5);
+
+            const weeks = dateTimeUtility.weeks.betweenDates(date1, date2);
+
+            assert.equal(weeks, 0);
+        });
+    });
+
+    describe('Months between two given dates should be 0 if same.', function() {
+        it('should be 0 months between two given dates if the dates are the same.', function() {
+            const date1 = new Date();
+
+            const date2 = new Date();
+
+            date1.setDate(date1.getDate() + 5);
+
+            date2.setDate(date2.getDate() + 5);
+
+            const months = dateTimeUtility.months.betweenDates(date1, date2);
+
+            assert.equal(months, 0);
+        });
+    });
+
+    describe('Years between two given dates should be 0 if same.', function() {
+        it('should be 0 years between two given dates if the dates are the same.', function() {
+            const date1 = new Date();
+
+            const date2 = new Date();
+
+            date1.setDate(date1.getDate() + 5);
+
+            date2.setDate(date2.getDate() + 5);
+
+            const years = dateTimeUtility.years.betweenDates(date1, date2);
+
+            assert.equal(years, 0);
+        });
+    });
 });
 
 describe('Test Date Time Utilities Errors', function() {
