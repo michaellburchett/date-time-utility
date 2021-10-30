@@ -42,5 +42,5 @@ function getUnitsBetweenDates(date1, date2) {
 
     const difference = date2 - date1;
 
-    return Math.round(difference / 1000);
+    return Math.ceil(difference / 1000);
 }

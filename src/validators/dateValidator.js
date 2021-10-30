@@ -6,7 +6,9 @@
  */
 exports.validateIsInstanceOf = function(entity) {
 
-    if(!entity instanceof Date){
+    const isType = (entity instanceof Date);
+
+    if(isType === false){
         throw new Error(`You must give a valid Date`);
     }
 };

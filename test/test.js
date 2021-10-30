@@ -312,6 +312,38 @@ describe('Test Date Time Utilities Successes', function() {
             assert.equal(years, 0);
         });
     });
+
+    describe('How many weeks are between two given dates less than one half week?', function() {
+        it('should get weeks between two given dates less than one half week apart.', function() {
+            const date1 = new Date();
+
+            const date2 = new Date();
+
+            date1.setDate(date1.getDate() + 5);
+
+            date2.setDate(date2.getDate() + 7);
+
+            const weeks = dateTimeUtility.weeks.betweenDates(date1, date2);
+
+            assert.equal(weeks, 0);
+        });
+    });
+
+    describe('How many weeks are between two given dates just less than one full week?', function() {
+        it('should get weeks between two given dates just less than one full week apart.', function() {
+            const date1 = new Date();
+
+            const date2 = new Date();
+
+            date1.setDate(date1.getDate() + 1);
+
+            date2.setDate(date2.getDate() + 7);
+
+            const weeks = dateTimeUtility.weeks.betweenDates(date1, date2);
+
+            assert.equal(weeks, 0);
+        });
+    });
 });
 
 describe('Test Date Time Utilities Errors', function() {
