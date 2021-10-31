@@ -34,7 +34,7 @@ date.setDate(date.getDate() + 365);
 const seconds = dateTimeUtility.seconds.fromCurrentTime(date); //31536000
 const minutes = dateTimeUtility.minutes.fromCurrentTime(date); //525600
 const hours = dateTimeUtility.hours.fromCurrentTime(date); //8760
-const days = dateTimeUtility.days.fromCurrentTime(date); //360
+const days = dateTimeUtility.days.fromCurrentTime(date); //365
 const weeks = dateTimeUtility.weeks.fromCurrentTime(date); //52
 const months = dateTimeUtility.months.fromCurrentTime(date); //12
 const years = dateTimeUtility.years.fromCurrentTime(date); //1
@@ -57,7 +57,7 @@ date2.setDate(date2.getDate() + 370);
 const seconds = dateTimeUtility.seconds.betweenDates(date1, date2) //31536000
 const minutes = dateTimeUtility.minutes.betweenDates(date1, date2) //525600
 const hours = dateTimeUtility.hours.betweenDates(date1, date2) //8760
-const days = dateTimeUtility.days.betweenDates(date1, date2) //360
+const days = dateTimeUtility.days.betweenDates(date1, date2) //365
 const weeks = dateTimeUtility.weeks.betweenDates(date1, date2) //52
 const months = dateTimeUtility.months.betweenDates(date1, date2) //12
 const years = dateTimeUtility.years.betweenDates(date1, date2) //1
