@@ -344,6 +344,18 @@ describe('Test Date Time Utilities Successes', function() {
             assert.equal(weeks, 0);
         });
     });
+
+    describe('What date and time is it this time tomorrow?', function() {
+        it('should get the datetime this time tomorrow.', function() {
+            const date = new Date();
+
+            date.setDate(date.getDate() + 1);
+
+            const compare = dateTimeUtility.datetime.thisTimeYesterday();
+
+            assert.equal(compare, date);
+        });
+    });
 });
 
 describe('Test Date Time Utilities Errors', function() {
