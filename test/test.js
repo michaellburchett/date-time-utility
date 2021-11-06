@@ -351,7 +351,175 @@ describe('Test Date Time Utilities Successes', function() {
 
             date.setDate(date.getDate() + 1);
 
+            const compare = dateTimeUtility.datetime.thisTimeTomorrow();
+
+            assert.equal(compare, date);
+        });
+    });
+
+    describe('What date and time is it this time next week?', function() {
+        it('should get the datetime this time next week.', function() {
+            const date = new Date();
+
+            date.setDate(date.getDate() + 7);
+
+            const compare = dateTimeUtility.datetime.thisTimeNextWeek();
+
+            assert.equal(compare, date);
+        });
+    });
+
+    describe('What date and time is it this time next month?', function() {
+        it('should get the datetime this time next month.', function() {
+            const date = new Date();
+
+            date.setDate(date.getMonth() + 1);
+
+            const compare = dateTimeUtility.datetime.thisTimeNextMonth();
+
+            assert.equal(compare, date);
+        });
+    });
+
+    describe('What date and time is it this time next year?', function() {
+        it('should get the datetime this time next year.', function() {
+            const date = new Date();
+
+            date.setDate(date.getDate() + 365);
+
+            const compare = dateTimeUtility.datetime.thisTimeNextYear();
+
+            assert.equal(compare, date);
+        });
+    });
+
+    describe('What date and time was it this yesterday?', function() {
+        it('should get the datetime this time yesterday.', function() {
+            const date = new Date();
+
+            date.setDate(date.getDate() - 1);
+
             const compare = dateTimeUtility.datetime.thisTimeYesterday();
+
+            assert.equal(compare, date);
+        });
+    });
+
+    describe('What date and time was it this time last week?', function() {
+        it('should get the datetime this time last week.', function() {
+            const date = new Date();
+
+            date.setDate(date.getDate() - 7);
+
+            const compare = dateTimeUtility.datetime.thisTimeLastWeek();
+
+            assert.equal(compare, date);
+        });
+    });
+
+    describe('What date and time was it this time last month?', function() {
+        it('should get the datetime this time last month.', function() {
+            const date = new Date();
+
+            date.setDate(date.getMonth() - 1);
+
+            const compare = dateTimeUtility.datetime.thisTimeLastMonth();
+
+            assert.equal(compare, date);
+        });
+    });
+
+    describe('What date and time was it this time last year?', function() {
+        it('should get the datetime this time next year.', function() {
+            const date = new Date();
+
+            date.setDate(date.getDate() - 365);
+
+            const compare = dateTimeUtility.datetime.thisTimeLastYear();
+
+            assert.equal(compare, date);
+        });
+    });
+
+    describe('What date and time is it a certain number of seconds from now?', function() {
+        it('should get the datetime a certain number of seconds from now.', function() {
+            const date = new Date();
+
+            date.setDate(date.getDate() + 1);
+
+            const compare = dateTimeUtility.datetime.secondsFromNow(86400);
+
+            assert.equal(compare, date);
+        });
+    });
+
+    describe('What date and time is it a certain number of minutes from now?', function() {
+        it('should get the datetime a certain number of minutes from now.', function() {
+            const date = new Date();
+
+            date.setDate(date.getDate() + 1);
+
+            const compare = dateTimeUtility.datetime.minutesFromNow(1440);
+
+            assert.equal(compare, date);
+        });
+    });
+
+    describe('What date and time is it a certain number of hours from now?', function() {
+        it('should get the datetime a certain number of hours from now.', function() {
+            const date = new Date();
+
+            date.setDate(date.getDate() + 1);
+
+            const compare = dateTimeUtility.datetime.hoursFromNow(24);
+
+            assert.equal(compare, date);
+        });
+    });
+
+    describe('What date and time is it a certain number of days from now?', function() {
+        it('should get the datetime a certain number of days from now.', function() {
+            const date = new Date();
+
+            date.setDate(date.getDate() + 1);
+
+            const compare = dateTimeUtility.datetime.daysFromNow(1);
+
+            assert.equal(compare, date);
+        });
+    });
+
+    describe('What date and time is it a certain number of weeks from now?', function() {
+        it('should get the datetime a certain number of weeks from now.', function() {
+            const date = new Date();
+
+            date.setDate(date.getDate() + 7);
+
+            const compare = dateTimeUtility.datetime.weeksFromNow(1);
+
+            assert.equal(compare, date);
+        });
+    });
+
+    describe('What date and time is it a certain number of months from now?', function() {
+        it('should get the datetime a certain number of months from now.', function() {
+            const date = new Date();
+
+            date.setDate(date.getMonth() + 1);
+
+            const compare = dateTimeUtility.datetime.monthsFromNow(1);
+
+            assert.equal(compare, date);
+        });
+    });
+
+    describe('What date and time is it a certain number of years from now?', function() {
+        it('should get the datetime a certain number of years from now.', function() {
+            const date = new Date();
+
+            date.setDate(date.getDate() + 365);
+
+            const compare = dateTimeUtility.datetime.yearsFromNow(1);
 
             assert.equal(compare, date);
         });

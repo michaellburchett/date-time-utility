@@ -21,6 +21,16 @@ exports.thisTimeNextWeek = function() {
 };
 
 /**
+ * Tells a user what it will be this time next month
+ *
+ * @return {Date}
+ */
+exports.thisTimeNextMonth = function() {
+
+    return new Date();
+};
+
+/**
  * Tells a user what it will be this time next year
  *
  * @return {Date}
