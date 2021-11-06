@@ -353,7 +353,7 @@ describe('Test Date Time Utilities Successes', function() {
 
             const compare = dateTimeUtility.datetime.thisTimeTomorrow();
 
-            assert.equal(compare, date);
+            assert.deepEqual(compare.setMilliseconds(0), date.setMilliseconds(0));
         });
     });
 

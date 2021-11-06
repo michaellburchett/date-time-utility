@@ -1,4 +1,5 @@
 const dateValidator = require('./validators/dateValidator');
+const dateRepository = require('./repositories/dateRepository');
 
 /**
  * Tells a user what it will be this time tomorrow
@@ -7,7 +8,9 @@ const dateValidator = require('./validators/dateValidator');
  */
 exports.thisTimeTomorrow = function() {
 
-    return new Date();
+    const date = new Date();
+
+    return dateRepository.addDaysToDate(date, 1);;
 };
 
 /**
