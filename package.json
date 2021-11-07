@@ -1,6 +1,6 @@
 {
   "name": "date-and-time-utility",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "An application that assists users in navigating the complexities of dates and times.",
   "main": "src/index.js",
   "scripts": {
