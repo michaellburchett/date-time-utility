@@ -3,7 +3,7 @@
 const dateTimeUtility = require('../src/index.js');
 const assert = require('assert');
 
-describe('Test Date Time Utilities Successes', function() {
+describe('Test Date Time Utilities Numbers Successes', function() {
 
     describe('How many seconds in the future is a specified date from the current time?', function() {
         it('should get seconds away a specified date is from the current time.', function() {
@@ -344,6 +344,9 @@ describe('Test Date Time Utilities Successes', function() {
             assert.equal(weeks, 0);
         });
     });
+});
+
+describe('Test Date Time Utilities Date Time Successes', function() {
 
     describe('What date and time is it this time tomorrow?', function() {
         it('should get the datetime this time tomorrow.', function() {
@@ -365,7 +368,7 @@ describe('Test Date Time Utilities Successes', function() {
 
             const compare = dateTimeUtility.datetime.thisTimeNextWeek();
 
-            assert.equal(compare, date);
+            assert.deepEqual(compare.setMilliseconds(0), date.setMilliseconds(0));
         });
     });
 
@@ -373,11 +376,11 @@ describe('Test Date Time Utilities Successes', function() {
         it('should get the datetime this time next month.', function() {
             const date = new Date();
 
-            date.setDate(date.getMonth() + 1);
+            date.setMonth(date.getMonth() + 1);
 
             const compare = dateTimeUtility.datetime.thisTimeNextMonth();
 
-            assert.equal(compare, date);
+            assert.deepEqual(compare.setMilliseconds(0), date.setMilliseconds(0));
         });
     });
 
@@ -389,7 +392,7 @@ describe('Test Date Time Utilities Successes', function() {
 
             const compare = dateTimeUtility.datetime.thisTimeNextYear();
 
-            assert.equal(compare, date);
+            assert.deepEqual(compare.setMilliseconds(0), date.setMilliseconds(0));
         });
     });
 
@@ -401,7 +404,7 @@ describe('Test Date Time Utilities Successes', function() {
 
             const compare = dateTimeUtility.datetime.thisTimeYesterday();
 
-            assert.equal(compare, date);
+            assert.deepEqual(compare.setMilliseconds(0), date.setMilliseconds(0));
         });
     });
 
@@ -413,7 +416,7 @@ describe('Test Date Time Utilities Successes', function() {
 
             const compare = dateTimeUtility.datetime.thisTimeLastWeek();
 
-            assert.equal(compare, date);
+            assert.deepEqual(compare.setMilliseconds(0), date.setMilliseconds(0));
         });
     });
 
@@ -421,11 +424,11 @@ describe('Test Date Time Utilities Successes', function() {
         it('should get the datetime this time last month.', function() {
             const date = new Date();
 
-            date.setDate(date.getMonth() - 1);
+            date.setMonth(date.getMonth() - 1);
 
             const compare = dateTimeUtility.datetime.thisTimeLastMonth();
 
-            assert.equal(compare, date);
+            assert.deepEqual(compare.setMilliseconds(0), date.setMilliseconds(0));
         });
     });
 
@@ -437,7 +440,7 @@ describe('Test Date Time Utilities Successes', function() {
 
             const compare = dateTimeUtility.datetime.thisTimeLastYear();
 
-            assert.equal(compare, date);
+            assert.deepEqual(compare.setMilliseconds(0), date.setMilliseconds(0));
         });
     });
 
@@ -449,7 +452,7 @@ describe('Test Date Time Utilities Successes', function() {
 
             const compare = dateTimeUtility.datetime.secondsFromNow(86400);
 
-            assert.equal(compare, date);
+            assert.deepEqual(compare.setMilliseconds(0), date.setMilliseconds(0));
         });
     });
 
@@ -461,7 +464,7 @@ describe('Test Date Time Utilities Successes', function() {
 
             const compare = dateTimeUtility.datetime.minutesFromNow(1440);
 
-            assert.equal(compare, date);
+            assert.deepEqual(compare.setMilliseconds(0), date.setMilliseconds(0));
         });
     });
 
@@ -473,7 +476,7 @@ describe('Test Date Time Utilities Successes', function() {
 
             const compare = dateTimeUtility.datetime.hoursFromNow(24);
 
-            assert.equal(compare, date);
+            assert.deepEqual(compare.setMilliseconds(0), date.setMilliseconds(0));
         });
     });
 
@@ -485,7 +488,7 @@ describe('Test Date Time Utilities Successes', function() {
 
             const compare = dateTimeUtility.datetime.daysFromNow(1);
 
-            assert.equal(compare, date);
+            assert.deepEqual(compare.setMilliseconds(0), date.setMilliseconds(0));
         });
     });
 
@@ -497,7 +500,7 @@ describe('Test Date Time Utilities Successes', function() {
 
             const compare = dateTimeUtility.datetime.weeksFromNow(1);
 
-            assert.equal(compare, date);
+            assert.deepEqual(compare.setMilliseconds(0), date.setMilliseconds(0));
         });
     });
 
@@ -505,11 +508,11 @@ describe('Test Date Time Utilities Successes', function() {
         it('should get the datetime a certain number of months from now.', function() {
             const date = new Date();
 
-            date.setDate(date.getMonth() + 1);
+            date.setMonth(date.getMonth() + 1);
 
             const compare = dateTimeUtility.datetime.monthsFromNow(1);
 
-            assert.equal(compare, date);
+            assert.deepEqual(compare.setMilliseconds(0), date.setMilliseconds(0));
         });
     });
 
@@ -521,12 +524,12 @@ describe('Test Date Time Utilities Successes', function() {
 
             const compare = dateTimeUtility.datetime.yearsFromNow(1);
 
-            assert.equal(compare, date);
+            assert.deepEqual(compare.setMilliseconds(0), date.setMilliseconds(0));
         });
     });
 });
 
-describe('Test Date Time Utilities Errors', function() {
+describe('Test Date Time Utilities Numbers Errors', function() {
 
     describe('Should error when non date is passed with seconds from now function.', function() {
         it('should return an error when a non-date is passed to the seconds function.', function() {
@@ -580,6 +583,17 @@ describe('Test Date Time Utilities Errors', function() {
         it('should return an error when a non-date is passed to the years function.', function() {
             assert.throws(
                 () => dateTimeUtility.years.fromCurrentTime("text")
+            );
+        });
+    });
+});
+
+describe('Test Date Time Utilities Date Time Errors', function() {
+
+    describe('Should error when non number is passed to datetime feature.', function() {
+        it('should return an error when a non-date is passed to the years function.', function() {
+            assert.throws(
+                () => dateTimeUtility.datetime.yearsFromNow("text")
             );
         });
     });

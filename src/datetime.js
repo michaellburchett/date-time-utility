@@ -1,4 +1,4 @@
-const dateValidator = require('./validators/dateValidator');
+const numberValidator = require('./validators/numberValidator');
 const dateRepository = require('./repositories/dateRepository');
 
 /**
@@ -10,7 +10,7 @@ exports.thisTimeTomorrow = function() {
 
     const date = new Date();
 
-    return dateRepository.addDaysToDate(date, 1);;
+    return dateRepository.addDaysToDate(date, 1);
 };
 
 /**
@@ -20,7 +20,9 @@ exports.thisTimeTomorrow = function() {
  */
 exports.thisTimeNextWeek = function() {
 
-    return new Date();
+    const date = new Date();
+
+    return dateRepository.addDaysToDate(date, 7);
 };
 
 /**
@@ -30,7 +32,9 @@ exports.thisTimeNextWeek = function() {
  */
 exports.thisTimeNextMonth = function() {
 
-    return new Date();
+    const date = new Date();
+
+    return dateRepository.addMonthsToDate(date, 1);
 };
 
 /**
@@ -40,7 +44,9 @@ exports.thisTimeNextMonth = function() {
  */
 exports.thisTimeNextYear = function() {
 
-    return new Date();
+    const date = new Date();
+
+    return dateRepository.addMonthsToDate(date, 12);
 };
 
 /**
@@ -50,7 +56,9 @@ exports.thisTimeNextYear = function() {
  */
 exports.thisTimeYesterday = function() {
 
-    return new Date();
+    const date = new Date();
+
+    return dateRepository.addDaysToDate(date, -1);
 };
 
 /**
@@ -60,7 +68,9 @@ exports.thisTimeYesterday = function() {
  */
 exports.thisTimeLastWeek = function() {
 
-    return new Date();
+    const date = new Date();
+
+    return dateRepository.addDaysToDate(date, -7);
 };
 
 /**
@@ -70,7 +80,9 @@ exports.thisTimeLastWeek = function() {
  */
 exports.thisTimeLastMonth = function() {
 
-    return new Date();
+    const date = new Date();
+
+    return dateRepository.addMonthsToDate(date, -1);
 };
 
 /**
@@ -80,7 +92,9 @@ exports.thisTimeLastMonth = function() {
  */
 exports.thisTimeLastYear = function() {
 
-    return new Date();
+    const date = new Date();
+
+    return dateRepository.addMonthsToDate(date, -12);
 };
 
 /**
@@ -90,7 +104,11 @@ exports.thisTimeLastYear = function() {
  */
 exports.secondsFromNow = function(number) {
 
-    return new Date();
+    numberValidator.validateIsInstanceOf(number);
+
+    const date = new Date();
+
+    return dateRepository.addSecondsToDate(date, number);
 };
 
 /**
@@ -100,7 +118,11 @@ exports.secondsFromNow = function(number) {
  */
 exports.minutesFromNow = function(number) {
 
-    return new Date();
+    numberValidator.validateIsInstanceOf(number);
+
+    const date = new Date();
+
+    return dateRepository.addSecondsToDate(date, number * 60);
 };
 
 /**
@@ -110,7 +132,11 @@ exports.minutesFromNow = function(number) {
  */
 exports.hoursFromNow = function(number) {
 
-    return new Date();
+    numberValidator.validateIsInstanceOf(number);
+
+    const date = new Date();
+
+    return dateRepository.addSecondsToDate(date, number * 60 * 60);
 };
 
 /**
@@ -120,7 +146,11 @@ exports.hoursFromNow = function(number) {
  */
 exports.daysFromNow = function(number) {
 
-    return new Date();
+    numberValidator.validateIsInstanceOf(number);
+
+    const date = new Date();
+
+    return dateRepository.addDaysToDate(date, number);
 };
 
 /**
@@ -130,7 +160,11 @@ exports.daysFromNow = function(number) {
  */
 exports.weeksFromNow = function(number) {
 
-    return new Date();
+    numberValidator.validateIsInstanceOf(number);
+
+    const date = new Date();
+
+    return dateRepository.addDaysToDate(date, number * 7);
 };
 
 /**
@@ -140,7 +174,11 @@ exports.weeksFromNow = function(number) {
  */
 exports.monthsFromNow = function(number) {
 
-    return new Date();
+    numberValidator.validateIsInstanceOf(number);
+
+    const date = new Date();
+
+    return dateRepository.addMonthsToDate(date, number);
 };
 
 /**
@@ -150,5 +188,9 @@ exports.monthsFromNow = function(number) {
  */
 exports.yearsFromNow = function(number) {
 
-    return new Date();
+    numberValidator.validateIsInstanceOf(number);
+
+    const date = new Date();
+
+    return dateRepository.addMonthsToDate(date, number * 12);
 };
